@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MiniInsta – Perfil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app">
+
+  <!-- Topo -->
+  <header class="topbar topbar--profile">
+    <div class="topbar-left">
+      <button class="icon-btn" aria-label="Voltar" onclick="goFeed()">←</button>
+      <div class="title">@usuario</div>
+    </div>
+
+    <div class="topbar-right">
+      <button class="icon-btn" aria-label="Menu" onclick="openMenu()">…</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo do perfil -->
+  <main class="container">
+    <section class="profile-header">
+      <div class="avatar-wrap">
+        <div class="ring"></div>
+        <div class="avatar">
+          <img src="profile.jpg" alt="Foto do perfil" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>302</strong>
+          <span>posts</span>
+        </div>
+        <div class="stat">
+          <strong>125 mil</strong>
+          <span>seguidores</span>
+        </div>
+        <div class="stat">
+          <strong>162</strong>
+          <span>seguindo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bio">
+      <div class="bio-name">Perfil demonstrativo</div>
+      <ul class="bio-list">
+        <li>📌 Solicite seu site aqui 📩</li>
+        <li>📌 Crie automação do zero</li>
+        <li>📌 100% seguro 🔒</li>
+        <li>📌 +15mil clientes atendidos <span class="more"></span></li>
+      </ul>
+      <div class="handle">@usuario</div>
+    </section>
+
+    <section class="actions">
+      <button class="btn primary">Seguir</button>
+      <button class="btn">Enviar mensagem</button>
+      <button class="btn icon">👤+</button>
+    </section>
+
+    <section class="highlights">
+      <div class="highlight">
+        <div class="highlight-circle"></div>
+        <span>dúvidas</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-circle"></div>
+        <span>feedbacks</span>
+      </div>
+      <div class="highlight">
+        <div class="highlight-circle"></div>
+        <span>comece aqui</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay hidden" onclick="closeAll()"></div>
+
+  <!-- Modal 1: Menu -->
+  <section id="menuSheet" class="sheet hidden" role="dialog" aria-modal="true">
+    <div class="sheet-card">
+      <button class="sheet-item danger" onclick="fakeAction('Bloquear')">Bloquear</button>
+      <button class="sheet-item danger" onclick="fakeAction('Restringir')">Restringir</button>
+      <button class="sheet-item danger" onclick="openReport()">Denunciar</button>
+
+      <div class="sheet-sep"></div>
+
+      <button class="sheet-item" onclick="fakeAction('Compartilhar')">Compartilhar</button>
+      <button class="sheet-item" onclick="fakeAction('Sobre essa conta')">Sobre essa conta</button>
+
+      <div class="sheet-sep"></div>
+
+      <button class="sheet-item cancel" onclick="closeAll()">Cancelar</button>
+    </div>
+  </section>
+
+  <!-- Modal 2: Denunciar -->
+  <section id="reportSheet" class="sheet hidden" role="dialog" aria-modal="true">
+    <div class="sheet-card report">
+      <div class="report-top">
+        <button class="icon-btn" aria-label="Voltar" onclick="backToMenu()">←</button>
+        <div class="report-title">Denunciar</div>
+        <button class="icon-btn" aria-label="Fechar" onclick="closeAll()">✕</button>
+      </div>
+
+      <button class="report-item" onclick="fakeReport('Spam')">
+        É spam
+        <span class="chev">›</span>
+      </button>
+
+      <button class="report-item" onclick="fakeReport('Menor de 13 anos')">
+        Pode ser menor de 13 anos de idade
+        <span class="chev">›</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Modal Sucesso -->
+  <div id="successToast" class="success hidden">
+    <div class="success-box">
+      <div class="checkmark"></div>
+      <p>Denúncia enviada com sucesso</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
